@@ -1,9 +1,15 @@
 安装了vmware 配合cenos虚拟硬件构建了属于自己的linux虚拟机
-ls -a \   显示\（根目录下）所有的文件包括隐藏文件 .a开头的
-ls -l     以列表形式展现当前home目录的文件内容
-ls -lh    在列表形式的前提下 以更易方便阅读的形式（内存大小后加上单位）表示
-cd        更改当前所在目录
-pwd       查看当前所在的工作目录
-.         表示当前目录 例如cd ./Desktop == cd /home/wyl/Desktop == cd Desktop 绝对路径以根目录为起点 相对路径以当前目录为起点 
-..        返回上一级目录   cd ../..表示切换到上两级目录
-~         表示HOME目录 cd ~/Desktop 表示切换到HOME目录中的Desktop目录
+            命令本体+选项+参数
+ls -a \                          显示\（根目录下）所有的文件包括隐藏文件 .a开头的
+ls -l                           以列表形式展现当前home目录的文件内容
+ls -lh                          在列表形式的前提下 以更易方便阅读的形式（内存大小后加上单位）表示
+cd                              更改当前所在目录
+pwd                             查看当前所在的工作目录
+.                               表示当前目录 例如cd ./Desktop == cd /home/wyl/Desktop == cd Desktop 绝对路径以根目录为起点 相对路径以当前目录为起点 
+..                              返回上一级目录   cd ../..表示切换到上两级目录
+~                               表示HOME目录 cd ~/Desktop 表示切换到HOME目录中的Desktop目录
+mkdir (-p) +路径/文件名          用来创建文件夹
+mkdir -p ~/itcast/wyl/nice/666  用来创建多个层级的目录
+toch test.txt                   用来创建文件
+cat +路径                       直接显示文件的所有内容
+more +路径                       文件内容过多时翻页查看内容 空格下一页 q退出
