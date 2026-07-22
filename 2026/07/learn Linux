@@ -29,3 +29,6 @@ tail -f -n                       查看文件尾部内容 -f可以持续最终 -
 
 su - root                        切换成超级管理员
 visudo 在文件最后 用户名 ALL=(ALL)            NOPASSWD: ALL  为普通用户配置sudo认证 之后的命令前加上sudo即可拥有权限
+groupadd    groupdel              useradd                                          userdel              usermod                        id             getent passwd            getent group 
+添加组      删除组        添加用户   -g指定用户进入的组  -d指定用户HOME目录            删除用户             修改用户组                  查看用户信息     查看看系统全部用户信息     查看系统全部组信息
+                                  不指定自动创建同名的组  不指定默认在/home/用户名    -r删除用户+HOME目录   -aG+用户组 用户名，此时该用户同时在两个组
