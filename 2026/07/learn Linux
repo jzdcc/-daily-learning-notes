@@ -9,10 +9,10 @@ cd                              更改当前所在目录
 pwd                             查看当前所在的工作目录
 .                               表示当前目录 例如cd ./Desktop == cd /home/wyl/Desktop == cd Desktop 绝对路径以根目录为起点 相对路径以当前目录为起点 
 ..                              返回上一级目录   cd ../..表示切换到上两级目录
-~                               表示HOME目录 cd ~/Desktop 表示切换到HOME目录中的Desktop目录
-mkdir (-p) +路径/文件名          用来创建文件夹
-mkdir -p ~/itcast/wyl/nice/666  用来创建多个层级的目录
-toch test.txt                   用来创建文件
+~                               表示HOME目录 cd ~/Desktop 表示切换到HOME目录中的Desktop目录                               ls-l 列出的权限信息
+mkdir (-p) +路径/文件名          用来创建文件夹                                                                          -或d或l           rwx         rwx            rwx          
+mkdir -p ~/itcast/wyl/nice/666  用来创建多个层级的目录                                                                 文件 文件夹 链接   所属用户权限  所属用户组权限 其他用户权限    
+toch test.txt                   用来创建文件                                                                                           读 写 执行（cd进入） 比如r--证明只有读权限                                        
 cat +路径                       直接显示文件的所有内容
 more +路径                      文件内容过多时翻页查看内容 空格下一页 q退出
 cp 1 2                          将文件1复制到文件2 如果是文件夹的复制需要加上-r
@@ -29,6 +29,10 @@ tail -f -n                       查看文件尾部内容 -f可以持续最终 -
 
 su - root                        切换成超级管理员
 visudo 在文件最后 用户名 ALL=(ALL)            NOPASSWD: ALL  为普通用户配置sudo认证 之后的命令前加上sudo即可拥有权限
-groupadd    groupdel              useradd                                          userdel              usermod                        id             getent passwd            getent group 
-添加组      删除组        添加用户   -g指定用户进入的组  -d指定用户HOME目录            删除用户             修改用户组                  查看用户信息     查看看系统全部用户信息     查看系统全部组信息
+
+  groupadd    groupdel              useradd                                          userdel              usermod                        id             getent passwd            getent group 
+  添加组      删除组        添加用户   -g指定用户进入的组  -d指定用户HOME目录            删除用户             修改用户组                  查看用户信息     查看看系统全部用户信息     查看系统全部组信息
                                   不指定自动创建同名的组  不指定默认在/home/用户名    -r删除用户+HOME目录   -aG+用户组 用户名，此时该用户同时在两个组
+
+chmod -R                           -R表示修改文件夹中所有的文件权限 r=4 w=2 x=1 
+                                    chmod 751 hello。txt代表chmod u=rwx，g=rx，o=x hello.txt
