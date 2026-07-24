@@ -40,3 +40,5 @@ visudo 在文件最后 用户名 ALL=(ALL)            NOPASSWD: ALL  为普通�
 chmod -R                           -R表示修改文件夹中所有的文件权限 r=4 w=2 x=1 
                                     chmod 751 hello。txt代表chmod u=rwx，g=rx，o=x hello.txt
 chown -R wyl：day test              将test文件夹所属用户修改成wyl 所属用户组为day 且适用于文件夹内所有文件（仅限root下执行）
+yum -y install remove search +软件名 -y是没有确认环节 安装删除搜索软件 
+systemctl start stop status enable disable 系统内置服务可以被这个命令控制启动关闭 查看状态 开机自启动 关闭开机自启动
