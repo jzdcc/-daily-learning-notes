@@ -31,6 +31,7 @@ echo                             在命令行输出指定内容
 tail -f -n                       查看文件尾部内容 -f可以持续最终 -n例如-5表示查看后五行内容 没有时默认为10行
 
 su - root                        切换成超级管理员
+配置sudo                               
 visudo 在文件最后 用户名 ALL=(ALL)            NOPASSWD: ALL  为普通用户配置sudo认证 之后的命令前加上sudo即可拥有权限
 
   groupadd    groupdel              useradd                                          userdel              usermod                        id             getent passwd            getent group 
@@ -42,3 +43,9 @@ chmod -R                           -R表示修改文件夹中所有的文件权�
 chown -R wyl：day test              将test文件夹所属用户修改成wyl 所属用户组为day 且适用于文件夹内所有文件（仅限root下执行）
 yum -y install remove search +软件名 -y是没有确认环节 安装删除搜索软件 
 systemctl start stop status enable disable 系统内置服务可以被这个命令控制启动关闭 查看状态 开机自启动 关闭开机自启动
+lm -s 绝对路径1 绝对路径2            创建软连接 将文件文件夹1链接到2的位置 类似于快捷方式 
+date -d "+-1 day"                   修改当前的时间 加减一天
+date "+%Y.%m.%d %H:%M:%S"           修改当前时间格式为2026.12.06 13：20：40
+sudo ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime 修改 时区 对比于copy 软连接可以持续更新
+通过主机名找到对应计算机的ip地址 这就是主机名映射（域名解析）
+先从系统本地的纪录去查找 C：\windows\System32\drivers\etc\hosts再去联网公开的DNS服务器查找
