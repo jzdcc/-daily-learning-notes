@@ -39,13 +39,13 @@ su - root                        切换成超级管理员
                                   不指定自动创建同名的组  不指定默认在/home/用户名    -r删除用户+HOME目录   -aG+用户组 用户名，此时该用户同时在两个组
 
 chmod -R                           -R表示修改文件夹中所有的文件权限 r=4 w=2 x=1 
-                                    chmod 751 hello。txt代表chmod u=rwx，g=rx，o=x hello.txt
+                                    chmod 751 hello.txt代表chmod u=rwx，g=rx，o=x hello.txt
 chown -R wyl：day test              将test文件夹所属用户修改成wyl 所属用户组为day 且适用于文件夹内所有文件（仅限root下执行）
 yum -y install remove search +软件名 -y是没有确认环节 安装删除搜索软件 
 systemctl start stop status enable disable 系统内置服务可以被这个命令控制启动关闭 查看状态 开机自启动 关闭开机自启动
 lm -s 绝对路径1 绝对路径2            创建软连接 将文件文件夹1链接到2的位置 类似于快捷方式 
 date -d "+-1 day"                   修改当前的时间 加减一天
-date "+%Y.%m.%d %H:%M:%S"           修改当前时间格式为2026.12.06 13：20：40
+date +"%Y.%m.%d %H:%M:%S"           修改当前时间格式为2026.12.06 13：20：40
 sudo ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime 修改 时区 对比于copy 软连接可以持续更新
                         通过主机名找到对应计算机的ip地址 这就是主机名映射（域名解析）
                         先从系统本地的纪录去查找 C：\windows\System32\drivers\etc\hosts再去联网公开的DNS服务器查找
@@ -56,3 +56,20 @@ curl -O url                          对网址发起命令请求 获得http源�
 127.0.0.1  0.0.0.0                   都代表本机ip 1~1023公认端口 1024~49151注册端口 49152~65535动态端口
 nmap                                 查看指定IP的对外暴露端口
 netstat -anp | grep                  前半部分获得本机全部网络连接展示程序占用端口情况 后者可查询某个端口
+ps-ef                                查看所有进程信息
+kill -9                              强制关闭指定进程号的进程
+top                                  查看cpu 内存 进程的信息
+df -h                                查看磁盘使用率
+iostat                               查看磁盘运行速率
+sar -n DEV                           查看网络情况rxkb每秒接受的数据包大小 txkb每秒发送的数据包大小
+echo $PATH                           输出环境变量的值 一组目录 目录之间用：隔开 当执行 裸命令 时就会去PATH搜寻 
+$                                    用来取变量的值 类似于key value 常搭配echo输出值 
+source +文件名                       配置文件 进行立即生效
+export只能存静态的字符串 不能直接存可执行的命令
+alias可以弥补export的缺点 例如我要将输入mydate时输出修改后的时间 可以在profile中输入alias mydate='date +"%Y.%m.%d"' 也可以在PATH后新加一个名为mydate的文件夹文件内容为  也可以实现
+修改环境变量针对用户~/bashrc中配置 全局/etc/profile  在相应文件中输入export PATH=$PATH:+自定义路径去修改环境变量
+rz sz                                 上传本地到linux 下载文件
+tar -cvf test.tar+文件 -C ＋路径    tar -zcvf           以tar模式压缩 文件大小未减小   以gzip压缩 大小大幅减小      
+tar -xvf    tar -zxvf                  解压.tar压缩包  解压.tar.gz      
+zip -r                                 压缩文件夹和文件           
+unzip                                  解压test.zip解压后会出现压缩包内的文件＋test test的内容为压缩包内的文件如果此时目录中有同名的将覆盖
