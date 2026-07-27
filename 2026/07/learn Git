@@ -1,1 +1,8 @@
-
+集中式版本控制系统 cvs svn      从中央服务器下载更改后上传更新 缺点：没有本地完整副本 服务器损坏历史记录有丢失风险
+分布式架构          git
+git --global全局配置，所有仓库生效
+    --sysytem系统配置，所有用户生效
+git config --global user.name        
+                     user.email              初始化用户名 邮箱 并保存
+                    credential.helper store 
+                     --list                   查看配置的信息
