@@ -6,3 +6,16 @@ git config --global user.name
                      user.email              初始化用户名 邮箱 并保存
                     credential.helper store 
                      --list                   查看配置的信息
+ls -altr                                      -t按时间排列 -r把排序反转
+git clone  +网址                               从网站上拉去到本地文件夹中
+git init                                       在当前目录创建一个仓库
+git status                                     查看仓库的状态
+git add                                        添加到暂存区 可以使用通配符 git add *.txt
+                                               也可以全选目录 git add .
+git commit -m ""                               将文件提交进.git “”中是提交备注 只会提交暂存区的内容
+git log                                        查看仓库提交历史记录 通过--oneline查看简介提交记录
+git reset --soft 要回退的版本id  或HEAD^（表示上个版本  工作区 暂存区都保留 注意在工作区修改后的 暂存区并不会同步
+          --mixed（默认                         工作区保留 暂存区消除
+          --hard                                工作区 暂存区全消除
+git ls-files                                    查看暂存区的文件
+git reflog                                      查看当前终端的操作记录 再用git reset 加版本id回到那个版本
