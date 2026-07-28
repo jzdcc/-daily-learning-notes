@@ -1,0 +1,75 @@
+安装了vmware 配合cenos虚拟硬件构建了属于自己的linux虚拟机
+finalShell进行终端命令
+ctrl c 强制停止         ctrl d退出  history查看历史命令  ctrl+← → 左右跳单词 ctrl l或clear清屏
+ctrl r搜索历史命令      Ctrl+a e 光标移动到开头 结尾 
+            命令本体+选项+参数                             通配符*                                                      用vim在命令行模式下编辑文件命令模式 i进入输入模式 esc回到命令模式 ：进入运行模式 wq进行保存和退出
+            命令本体就是一个个的二进制可执行程序                                                                           / 进入搜索模式 n向下搜索N向上
+            管道符 | ；将符号左边的结果作为右边的输入                                                                       dd删除光标所在行
+ls -a \                         显示\（根目录下）所有的文件包括隐藏文件 .a开头的                                             yy复制当前行
+ls -l                           以列表形式展现当前home目录的文件内容                                                        G跳到行尾
+ls -lh                          在列表形式的前提下 以更易方便阅读的形式（内存大小后加上单位）表示                              u是撤销上一步
+cd                              更改当前所在目录
+pwd                             查看当前所在的工作目录
+.                               表示当前目录 例如cd ./Desktop == cd /home/wyl/Desktop == cd Desktop 绝对路径以根目录为起点 相对路径以当前目录为起点 
+..                              返回上一级目录   cd ../..表示切换到上两级目录
+~                               表示HOME目录 cd ~/Desktop 表示切换到HOME目录中的Desktop目录                               ls-l 列出的权限信息
+mkdir (-p) +路径/文件名          用来创建文件夹                                                                          -或d或l           rwx         rwx            rwx          
+mkdir -p ~/itcast/wyl/nice/666  用来创建多个层级的目录                                                                 文件 文件夹 链接   所属用户权限  所属用户组权限 其他用户权限    
+toch test.txt                   用来创建文件                                                                                           读 写 执行（cd进入） 比如r--证明只有读权限                                        
+cat +路径                       直接显示文件的所有内容
+more +路径                      文件内容过多时翻页查看内容 空格下一页 q退出 
+cp 1 2                          将文件1复制到文件2 如果是文件夹的复制需要加上-r
+mv 1 2                          移动1到2中 文件文件夹都可以 如果2不存在则将1进行改名
+rm -r -f                        -r表示删除文件夹 -f表示强制删除（不再进行确认） 可以一次性删除多个
+which cd &which pwd& which cp   查看命令的程序文件在哪里
+find +起始路径 -name ""   find + 起始路径 -size +或-k.M.G                          根据名字 大小查找文件
+grep -n                         （-n可选，表示在结果中显示匹配的行的行号）从文件中通过关键字过滤文件行
+wc -l -w -c -m                   统计文件的行数 单词数 字节数 字符数
+echo                             在命令行输出指定内容
+` `                              被反引号包围的内容会被作为命令执行而非普通字符 例如 echo `pwd` 输出结果不是pwd
+>> >                             重定向符>表示 覆盖 写入右侧文件   >>追加写入
+tail -f -n                       查看文件尾部内容 -f可以持续更新追踪 -n例如-5表示查看后五行内容 没有时默认为10行
+
+su - root                        切换成超级管理员
+配置sudo                               
+                        visudo 在文件最后 用户名 ALL=(ALL)            NOPASSWD: ALL  为普通用户配置sudo认证 之后的命令前加上sudo即可拥有权限
+
+  groupadd    groupdel              useradd                                          userdel              usermod                        id             getent passwd            getent group 
+  添加组      删除组        添加用户   -g指定用户进入的组  -d指定用户HOME目录            删除用户             修改用户组                  查看用户信息     查看看系统全部用户信息     查看系统全部组信息
+                                  不指定自动创建同名的组  不指定默认在/home/用户名    -r删除用户+HOME目录   -aG+用户组 用户名，此时该用户同时在两个组
+
+chmod -R                           -R表示修改文件夹中所有的文件权限 r=4 w=2 x=1 
+                                    chmod 751 hello.txt代表chmod u=rwx，g=rx，o=x hello.txt
+chown -R wyl：day test              将test文件夹所属用户修改成wyl 所属用户组为day 且适用于文件夹内所有文件（仅限root下执行）
+yum -y install remove search +软件名 -y是没有确认环节 安装删除搜索软件 
+systemctl start stop status enable disable 系统内置服务可以被这个命令控制启动关闭 查看状态 开机自启动 关闭开机自启动
+lm -s 绝对路径1 绝对路径2            创建软连接 将文件文件夹1链接到2的位置 类似于快捷方式 
+date -d "+-1 day"                   修改当前的时间 加减一天
+date +"%Y.%m.%d %H:%M:%S"           修改当前时间格式为2026.12.06 13：20：40
+sudo ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime 修改 时区 对比于copy 软连接可以持续更新
+                        通过主机名找到对应计算机的ip地址 这就是主机名映射（域名解析）
+                        先从系统本地的纪录去查找 C：\windows\System32\drivers\etc\hosts再去联网公开的DNS服务器查找
+ping -c 3 ip或主机名                  测试三次某服务器是否连通
+wget -b url（网址）                   后台 下载网络文件
+curl -O url                          对网址发起命令请求 获得http源码  ip与网络信息查询 -O用来下载网络文件
+虚拟端口作用                          ip只能确定计算机 通过端口才能锁定要交互的程序
+127.0.0.1  0.0.0.0                   都代表本机ip 1~1023公认端口 1024~49151注册端口 49152~65535动态端口
+nmap                                 查看指定IP的对外暴露端口
+netstat -anp | grep                  前半部分获得本机全部网络连接展示程序占用端口情况 后者可查询某个端口
+ps-ef                                查看所有进程信息
+kill -9                              强制关闭指定进程号的进程
+top                                  查看cpu 内存 进程的信息
+df -h                                查看磁盘使用率
+iostat                               查看磁盘运行速率
+sar -n DEV                           查看网络情况rxkb每秒接受的数据包大小 txkb每秒发送的数据包大小
+echo $PATH                           输出环境变量的值 一组目录 目录之间用：隔开 当执行 裸命令 时就会去PATH搜寻 
+$                                    用来取变量的值 类似于key value 常搭配echo输出值 
+source +文件名                       配置文件 进行立即生效
+export只能存静态的字符串 不能直接存可执行的命令
+alias可以弥补export的缺点 例如我要将输入mydate时输出修改后的时间 可以在profile中输入alias mydate='date +"%Y.%m.%d"' 也可以在PATH后新加一个名为mydate的文件夹文件内容为  也可以实现
+修改环境变量针对用户~/bashrc中配置 全局/etc/profile  在相应文件中输入export PATH=$PATH:+自定义路径去修改环境变量
+rz sz                                 上传本地到linux 下载文件
+tar -cvf test.tar+文件 -C ＋路径    tar -zcvf           以tar模式压缩 文件大小未减小   以gzip压缩 大小大幅减小      
+tar -xvf    tar -zxvf                  解压.tar压缩包  解压.tar.gz      
+zip -r                                 压缩文件夹和文件           
+unzip                                  解压test.zip解压后会出现压缩包内的文件＋test test的内容为压缩包内的文件如果此时目录中有同名的将覆盖

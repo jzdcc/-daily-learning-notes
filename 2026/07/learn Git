@@ -1,0 +1,36 @@
+集中式版本控制系统 cvs svn      从中央服务器下载更改后上传更新 缺点：没有本地完整副本 服务器损坏历史记录有丢失风险
+分布式架构          git
+git --global全局配置，所有仓库生效
+    --sysytem系统配置，所有用户生效
+git config --global user.name        
+                     user.email              初始化用户名 邮箱 并保存
+                    credential.helper store 
+                     --list                   查看配置的信息
+ls -altr                                      -t按时间排列 -r把排序反转
+git clone  +网址                               从网站上拉去到本地文件夹中
+git init                                       在当前目录创建一个仓库
+git status                                     查看仓库的状态
+git add                                        添加到暂存区 可以使用通配符 git add *.txt
+                                               也可以全选目录 git add .
+git commit -m ""                               将文件提交进.git “”中是提交备注 只会提交暂存区的内容
+git log                                        查看仓库提交历史记录 通过--oneline查看简介提交记录
+git reset --soft 要回退的版本id  或HEAD^（表示上个版本  工作区 暂存区都保留 注意在工作区修改后的 暂存区并不会同步
+          --mixed（默认                         工作区保留 暂存区消除
+          --hard                                工作区 暂存区全消除
+git ls-files                                    查看暂存区的文件
+git reflog                                      查看当前终端的操作记录 再用git reset 加版本id回到那个版本
+git diff                                        比较工作区和暂存区的区别
+git diff HEAD                                   工作区+暂存区 vs 本地仓库（版本库
+git diff --cached/--staged                      暂存区 vs 版本库
+git diff 提交id 提交id                           比较提交之间的差异
+HEAD~+数字或^                                    表示前一个版本或前几个版本
+git diff <branch_name> <branch_name>            比较分支之间的的差异
+rm file;gie add file                            先从工作区删除文件 然后add让暂存区更新
+git rm<file>                                    把文件从工作区和暂存区同时删除 但此时不commit就可以用 git restore --source=HEAD<file>恢复文件 注意：此时未撤销待删除记录 暂存区找不到此文件 git restore --staged file恢复
+git rm --cached<file>                           把文件从暂存区删除但保留工作区    
+git rm -r *                                     递归某个目录下所有子目录文件夹文件
+.gitignore                                      在此文件中编辑要忽略的文件名 此文件就不会被add commit 只存在于工作区 注意：如果写入的文件已经存在于版本库中 ignore消失作用
+生成SSH Key                                      ssh-keygen -t rsa -b 4096
+git clone repo-address                          将远程仓库克隆到本地
+git push  remote-adress <branch>                                      将本地内容上传到远程
+git pull  remote-adress                                      本地拉取远程内容更新
