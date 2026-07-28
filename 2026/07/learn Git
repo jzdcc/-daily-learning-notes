@@ -34,3 +34,6 @@ git rm -r *                                     递归某个目录下所有子�
 git clone repo-address                          将远程仓库克隆到本地
 git push  remote-adress <branch>                                      将本地内容上传到远程
 git pull  remote-adress                                      本地拉取远程内容更新
+git
+git remote add origin +remote_adress            给远程仓库创建别名 
+push -u origin master:main                      远程main与本地master建立联系 同步所有内容
