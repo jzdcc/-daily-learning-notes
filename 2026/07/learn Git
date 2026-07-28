@@ -26,6 +26,7 @@ git diff 提交id 提交id                           比较提交之间的差异
 HEAD~+数字或^                                    表示前一个版本或前几个版本
 git diff <branch_name> <branch_name>             比较分支之间的的差异
 rm file;gie add file                             先从工作区删除文件 然后add让暂存区更新
-git rm<file>                                     把文件从工作区和暂存区同时删除 但此时不commit就可以用 git restore --source=HEAD<file>恢复
+git rm<file>                                     把文件从工作区和暂存区同时删除 但此时不commit就可以用 git restore --source=HEAD<file>恢复文件 注意：此时未撤销待删除记录 暂存区找不到此文件 git restore --staged file恢复
 git rm --cached<file>                            把文件从暂存区删除但保留工作区    
 git rm -r *                                      递归某个目录下所有子目录文件夹文件
+.gitignore                                       在此文件中编辑要忽略的文件名 此文件就不会被add commit 只存在于工作区 注意：如果写入的文件已经存在于版本库中 ignore消失作用
