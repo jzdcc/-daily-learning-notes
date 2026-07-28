@@ -19,3 +19,9 @@ git reset --soft 要回退的版本id  或HEAD^（表示上个版本  工作区 
           --hard                                工作区 暂存区全消除
 git ls-files                                    查看暂存区的文件
 git reflog                                      查看当前终端的操作记录 再用git reset 加版本id回到那个版本
+git diff                                        比较工作区和暂存区的区别
+git diff HEAD                                   工作区+暂存区 vs 本地仓库（版本库
+git diff --cached/--staged                      暂存区 vs 版本库
+git diff 提交id 提交id                           比较提交之间的差异
+HEAD~+数字或^                                    表示前一个版本或前几个版本
+git diff <branch_name> <branch_name>             比较分支之间的的差异
