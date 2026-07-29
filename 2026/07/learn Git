@@ -37,3 +37,12 @@ git pull  remote-adress                                      本地拉取远程�
 git
 git remote add origin +remote_adress            给远程仓库创建别名 
 push -u origin master:main                      远程main与本地master建立联系 同步所有内容
+git branch_name  git branch                      创建新的分支  查看分支列表 此分支是从main分叉出去的 保留了前半段main提交的文件 
+git switch +分支名                                切换所在分支
+gir merge dev                                    先切换到最终合并完成的分支 将dev分支合并进main分支 合并后的dev不会消失
+git log --oneline --graph                        图形化查看提交分支关系
+git branch -d dev                                删除已经被合并的dev分支  如果并没有合并使用-D
+git checkout -b branch_id                        恢复删除掉的分支
+两个分支修改了同一个文件的内容 且修改内容不同就会造成合并冲突 用git status查看冲突的文件后手动修改内容 提交后便会自动合并 出现冲突后如果像停止合并操作用git merge --abort
+git reset --branch_id                             回退到某个提交点
+git rebase                                        在main分支使用git rebase dev 就是把比dev分支多的复制粘贴到dev尾部 又可能会改变提交历史 但是结果为线性比较清晰
