@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo "请输入您的姓名："
+read name
+echo "您好，$name!"
+number= $(( RANDOM % 10 + 1 ))
+#echo $number
+while true; do
+    echo "请猜一个1到10之间的数字:"
+    read guess
+    if [[ $guess -lt 1 || $guess -gt 10 ]]; then
+        echo "请输入一个有效的数字(1-10)!"
+        continue
+    fi
+    if [[ $guess -eq $number ]]; then
+        echo "恭喜你，$name你猜对了! "
+        break
+    elif [[ $guess -lt $number ]]; then
+        echo "太小了，请再试一次。"
+    else
+        echo "太大了，请再试一次。"
+    fi
+done
