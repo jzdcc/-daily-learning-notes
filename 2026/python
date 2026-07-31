@@ -1,0 +1,12 @@
+# 文件读写操作
+# 当处理多个文件读取操作时使用 方便快捷
+\会被python认为是转义符 \t=tab键 可以前边＋r 或\\ 或/
+with open("D:/测试.txt","r",encoding="utf-8") as f:
+    count=0
+    for line in f:
+        line=line.strip()  # 去掉首尾空格
+        words=line.split()  # 按空格分割
+        for word in words:
+            if word=="python":
+                count+=1
+print(f"python出现了{count}次")
