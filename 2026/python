@@ -1,4 +1,4 @@
-# 文件读写操作
+1.     # 文件读写操作
 # 当处理多个文件读取操作时使用 方便快捷
 \会被python认为是转义符 \t=tab键 可以前边＋r 或\\ 或/
 with open("D:/测试.txt","r",encoding="utf-8") as f:
@@ -10,3 +10,19 @@ with open("D:/测试.txt","r",encoding="utf-8") as f:
             if word=="python":
                 count+=1
 print(f"python出现了{count}次")
+
+2.     # 文件写入操作
+with open("D:/测试.txt","w",encoding="utf-8") as f:         #文件不存在时创建 存在时覆盖内容 “a”表示追加
+    f.write("Hello, World!")
+     #with open自带关闭文件功能，不需要再写f.close() 而close自带flush刷新功能 （类似linux的source
+ 
+3.
+with open("D:/bill.txt", "r", encoding="UTF-8") as fr, open("D:/bill.txt.bak", "w", encoding="UTF-8") as fw:
+    for line in fr:
+        line = line.strip()
+        if line.split(",")[4] == "测试":
+            continue
+        fw.write(line)   # 写入硬盘文件
+        fw.write("\n")
+                        # print(line)  # 可选：屏幕打印看看，不写也完全正常
+    
