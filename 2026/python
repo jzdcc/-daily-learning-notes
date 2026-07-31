@@ -22,7 +22,7 @@ with open("D:/bill.txt", "r", encoding="UTF-8") as fr, open("D:/bill.txt.bak", "
         line = line.strip()
         if line.split(",")[4] == "测试":
             continue
-        fw.write(line)   # 写入硬盘文件
+        fw.write(line)   
         fw.write("\n")
-                        # print(line)  # 可选：屏幕打印看看，不写也完全正常
+                        # print(line)  # 屏幕打印看看
     
