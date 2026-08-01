@@ -11,12 +11,12 @@ with open("D:/测试.txt","r",encoding="utf-8") as f:
                 count+=1
 print(f"python出现了{count}次")
 
-2.     # 文件写入操作
+     # 文件写入操作
 with open("D:/测试.txt","w",encoding="utf-8") as f:         #文件不存在时创建 存在时覆盖内容 “a”表示追加
     f.write("Hello, World!")
      #with open自带关闭文件功能，不需要再写f.close() 而close自带flush刷新功能 （类似linux的source
  
-3.
+
 with open("D:/bill.txt", "r", encoding="UTF-8") as fr, open("D:/bill.txt.bak", "w", encoding="UTF-8") as fw:
     for line in fr:
         line = line.strip()
@@ -25,4 +25,19 @@ with open("D:/bill.txt", "r", encoding="UTF-8") as fr, open("D:/bill.txt.bak", "
         fw.write(line)   
         fw.write("\n")
                         # print(line)  # 屏幕打印看看
-    
+2.      #异常 模块
+try:
+    可能出现异常的部分
+except:            （表示包括所有的异常情况）
+    如果出现异常 print（）...
+                                异常具有传递性 将try写最后的也可以 不用写到问题的源头
+错误来自于外部（文件、网络、用户输入）时用try except 因为你无法预知他是否会错误
+错误来自于自己的变量 用if else
+ 模块：单个py文件       包：包含很多模块的文件夹 （前提文件夹有__init__.py这个文件 这个文件内可以写__all__      库：对外的统称 模块 包都可以叫库
+import time    =from time import sleep只能用sleep 这一个功能    =     from time import *(包含time内的全部功能函数 
+time.sleep       sleep （文件内部的一个函数                                               sleep 注意：这个写法读取的是__all__如果指定all=那个函数就只能使用那一个
+        后都可以＋as设置别名
+同一个文件夹下的不同文件可以相互调用
+
+3.       pip install 库名
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple 库名
