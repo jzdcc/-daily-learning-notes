@@ -1,0 +1,11 @@
+class Student:
+    name=None
+
+    def say_hay(self):
+        print("Hay, my name is " , self.name)       #在成员方法中访问成员变量要self.变量名
+
+          我们可以将现实世界的事物都由类来表示
+              事           物
+              都由属性 行为构成
+    打扫卫生分为属性：何时何地谁   行为：扫 拖 擦
+此为 面向对象编程 类只是程序内的设计图纸 需要基于对象 才能工作
