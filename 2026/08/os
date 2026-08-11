@@ -14,5 +14,7 @@ os.mkdirs()                    创建一个递归的文件夹
 os.rmdir()                      只能删除空文件夹
 os.path.join(path,filename)     自动适配电脑系统进行路径拼接
 os.path.split(path)              输出路径和文件名两个部分 以元组方式返回
-os.path.dirname(oath)            只返回路径
-os.path。basename                只返回文件名
+os.path.dirname(path)            只返回路径
+os.path.basename(path)                只返回文件名
+os.path.getsize(path)            如果具体到文件 返回文件大小  文件夹初始会给一个块的大小：4096
+os.path.abspath(path)            取决于os.getcwd() 返回path的绝对路径 absolute绝对的
