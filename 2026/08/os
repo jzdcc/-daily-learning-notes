@@ -1,0 +1,18 @@
+import os
+os是用于让python代码去操作系统 不同于人为在cmd中操作
+os.getcwd()                获得当前工作路径 vscode以当前根目录为所有的工作路径
+
+path1="D:/test"
+os.path.exists(path1)       判断路径下的目录是否存在
+os.listdir(path1)            遍历路径下的文件文件夹 但不会递归
+os.walka(path)               返回的是由路径，文件夹列表，文件列表组成的元组
+
+path=os.getcwd()+"/文件名"
+os.mkdir(path)                创建单层文件夹 若已存在就会报错
+path2=os.getcwd()+"/文件名/文件名2"
+os.mkdirs()                    创建一个递归的文件夹
+os.rmdir()                      只能删除空文件夹
+os.path.join(path,filename)     自动适配电脑系统进行路径拼接
+os.path.split(path)              输出路径和文件名两个部分 以元组方式返回
+os.path.dirname(oath)            只返回路径
+os.path。basename                只返回文件名
