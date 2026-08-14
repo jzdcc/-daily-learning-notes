@@ -21,3 +21,15 @@ os.path.abspath(path)            取决于os.getcwd() 返回path的绝对路径 
 os.environ                       读取环境变量 os.environ[PATH]PATH这个环境变量的内容 输入不认识的代码 系统会依次根据这个路径查找
 os.system()                      执行系统命令 相当于把括号内容放在cmd上输出
 pathlib 简介明了 从左到右的阅读顺序更符合直觉
+from pathlib import Path
+Path.iterdir()
+
+p=Path(file.txt)
+print(p.name)            file.txt  
+print(p.stem)            file
+print(p.suffix)          .txt
+print(p.exists())         True False
+print(p.parent)            输出父目录 可以链式叠加 当前工作目录输出为 . （-->priject
+print(p.parent.absolute())  输出当前工作目录即.的绝对路径
+new_file=new_file=my_dir/"new_file.txt"
+print(new_file)            获得新文件路径
