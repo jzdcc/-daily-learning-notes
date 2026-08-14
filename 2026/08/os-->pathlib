@@ -18,3 +18,6 @@ os.path.dirname(path)            只返回路径
 os.path.basename(path)                只返回文件名
 os.path.getsize(path)            如果具体到文件 返回文件大小  文件夹初始会给一个块的大小：4096
 os.path.abspath(path)            取决于os.getcwd() 返回path的绝对路径 absolute绝对的
+os.environ                       读取环境变量 os.environ[PATH]PATH这个环境变量的内容 输入不认识的代码 系统会依次根据这个路径查找
+os.system()                      执行系统命令 相当于把括号内容放在cmd上输出
+pathlib 简介明了 从左到右的阅读顺序更符合直觉
