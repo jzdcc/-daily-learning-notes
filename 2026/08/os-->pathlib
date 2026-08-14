@@ -21,8 +21,12 @@ os.path.abspath(path)            取决于os.getcwd() 返回path的绝对路径 
 os.environ                       读取环境变量 os.environ[PATH]PATH这个环境变量的内容 输入不认识的代码 系统会依次根据这个路径查找
 os.system()                      执行系统命令 相当于把括号内容放在cmd上输出
 pathlib 简介明了 从左到右的阅读顺序更符合直觉
-from pathlib import Path
-Path.iterdir()
+
+                from pathlib import Path
+Path.iterdir()          
+for p in  Path().iterdir()
+print(p)                Path()不传参数默认工作目录 单层遍历工作目录
+Path().rglob("*vscode*",case_sensitive=False)  深层遍及工作目录的文件 并查找无论大小写带有vsccde的文件  
 
 p=Path(file.txt)
 print(p.name)            file.txt  
@@ -33,3 +37,4 @@ print(p.parent)            输出父目录 可以链式叠加 当前工作目录
 print(p.parent.absolute())  输出当前工作目录即.的绝对路径
 new_file=new_file=my_dir/"new_file.txt"
 print(new_file)            获得新文件路径
+case_sensitive=False       不区分大小写
