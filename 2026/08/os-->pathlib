@@ -38,3 +38,14 @@ print(p.parent.absolute())  输出当前工作目录即.的绝对路径
 new_file=new_file=my_dir/"new_file.txt"
 print(new_file)            获得新文件路径
 case_sensitive=False       不区分大小写
+p=Path.("TempFile.txt")
+p.touch                    创建文件夹
+p.unlink                   删除带内容的文件
+
+p.rmdir()                  删除空文件夹
+
+import shutil
+shutil.rmtree(文件夹名)              删含子文件 有内容的文件夹
+
+p=Path("TempDir/Sundir")
+p.mkdir(parents=True)       创建了一个有子文件的目录
