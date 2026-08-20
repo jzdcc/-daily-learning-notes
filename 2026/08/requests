@@ -3,3 +3,6 @@ request.post                     向网址创建上传信息
 requeat.json
 response.raise_for_status()      检查http状态码 如果是4* 5xx直接抛出异常 程序报错 否则继续下边的代码
 TOKEN                             api服务器给你的身份凭证 将其保存到变量headers变量头然后 get使用
+uv init .                          搭建虚拟环境
+uv pip install requests            配置依赖
+uv run main.py                     运行文件
