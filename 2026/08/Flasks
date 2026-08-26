@@ -1,0 +1,4 @@
+虚拟环境
+python -m venv myenv
+myenv\Scripts\activate              虚拟环境自己创建Scripts 指向标准库(lib 不会继承系统第三方包(site-packages 若--systenm-site-packages 则继承
+pip freeze > requirements.txt        生成文件内部包含虚拟环境的第三方包
