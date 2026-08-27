@@ -5,7 +5,7 @@ myenv\Scripts\activate              虚拟环境自己创建Scripts 指向标准
 pip  > requirements.txt        生成文件内部包含虚拟环境的第三方包
 
 flask
-from flask import Flask
+from flask import Flask，request，jsonify
 app=Flask(_name_)
 @app.route=("/...")            当用户访问...这个url时 调用下方的函数
 def
@@ -13,11 +13,14 @@ def
 app.run()
 程序会在本地搭建一个临时的web服务器并生成一个访问地址 当你添加完整网址后便会return 内容
 
-# --http://127.0.0.1:5000/index?age=19&pwd=123  --在网址栏操作
+# --http://127.0.0.1:5000/index?age=19&pwd=123  -->  在网址栏操作
 当url中含有?后的get参数时可用
 request.args.get("age")接收输出参数                 
 
-# --当请求体xx=123&yy=999--              在表单 网页输入框 提交信息时
+# --当有请求体xx=123&yy=999--时 先在route("/index",methods=["post","GET"])    才能post上传属数据     -->   在表单 网页输入框 提交信息时
 request.from.get("xx")     在后端获取前端输入的数据
 {"xx":123,"yy":999}
 request.json["xx"]          当请求体数据是json类型时使用                
+
+在函数中可以添加jsonify  （Flask不能直接返回字典
+返回json格式数据 方便前端显示给客户端json格式的数据 return jsonify("status":True,"data":)    
