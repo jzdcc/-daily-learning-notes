@@ -22,5 +22,5 @@ request.from.get("xx")     在后端获取前端输入的数据
 {"xx":123,"yy":999}
 request.json["xx"]          当请求体数据是json类型时使用                
 
-在函数中可以添加jsonify  （Flask不能直接返回字典
+在函数中可以添加jsonify  （Flask不能直接返回字典 返回时使用将字典变成字符串
 返回json格式数据 方便前端显示给客户端json格式的数据 return jsonify("status":True,"data":"aaaabbb")    
