@@ -1,2 +1,19 @@
 关系型数据库MySQL 数据强一致结构长期稳定
 非关系型数据库Redis ，ES  数据结构多变 需要超高并发
+create database `sql_tutorial`;					        	  #创建数据库
+show databases;									                  	#查看当前mysql服务器上的所有数据库清单
+use`sql_tutorial`;								                	#切换到这个库操作
+
+create table`student`(							              	#创建名为student的表					
+	`student_id` int primary key,					
+    `name` varchar(20),							              	#含三个字段 student_id为主键（不能重复
+    `major` varchar(20)
+)character set utf8mb4 collate utf8mb4_unicode_ci;	#指定表的格式
+describe `student`;								                	#查看表的结构
+drop table `student`;							                  #删除表
+alter table `student` add gpa decimal(3,2);			    #选择某个表 新增一列
+alter table `student` drop gpa;					          	#删列
+
+insert into `student` values(3,'小黑','物理');		    #插入一条完整数据(按表的顺序
+select * from `student`;						                #查询表所有数据
+insert into `student`(`major`,`student_id`)values('英语',2);
