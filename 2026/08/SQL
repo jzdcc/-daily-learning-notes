@@ -5,9 +5,9 @@ show databases;									                  	#查看当前mysql服务器上的所�
 use`sql_tutorial`;								                	#切换到这个库操作
 
 create table`student`(							              	#创建名为student的表					
-	`student_id` int primary key,					
-    `name` varchar(20),							              	#含三个字段 student_id为主键（不能重复
-    `major` varchar(20)
+	`student_id` int primary key auto_increment					自动化增加 当为1，2，3时 添加数据时可以写null不用管第几个
+    `name` varchar(20),						              	#含三个字段 student_id为主键（不能重复
+    `major` varchar(20)		default('历史')/notnull/unique	#添加限制 预设值为历史 / 不能为null / 不能重复
 )character set utf8mb4 collate utf8mb4_unicode_ci;	#指定表的格式
 describe `student`;								                	#查看表的结构
 drop table `student`;							                  #删除表
