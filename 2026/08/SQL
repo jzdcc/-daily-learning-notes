@@ -1,19 +1,67 @@
 关系型数据库MySQL 数据强一致结构长期稳定
 非关系型数据库Redis ，ES  数据结构多变 需要超高并发
-create database `sql_tutorial`;					        	  #创建数据库
-show databases;									                  	#查看当前mysql服务器上的所有数据库清单
-use`sql_tutorial`;								                	#切换到这个库操作
+create database `sql_tutorial`;						#创建数据库								<>不等号
+show databases;										#查看当前mysql服务器上的所有数据库清单
+use`sql_tutorial`;									#切换到这个库操作
 
-create table`student`(							              	#创建名为student的表					
-	`student_id` int primary key auto_increment					自动化增加 当为1，2，3时 添加数据时可以写null不用管第几个
-    `name` varchar(20),						              	#含三个字段 student_id为主键（不能重复
-    `major` varchar(20)		default('历史')/notnull/unique	#添加限制 预设值为历史 / 不能为null / 不能重复
+create table`employee`(								#创建名为student的表					
+	`employee_id` int auto_increment primary key,					
+    `name` varchar(20),								#含三个字段 student_id为主键（不能重复
+    `major` varchar(20),
+    `score` int
 )character set utf8mb4 collate utf8mb4_unicode_ci;	#指定表的格式
-describe `student`;								                	#查看表的结构
-drop table `student`;							                  #删除表
-alter table `student` add gpa decimal(3,2);			    #选择某个表 新增一列
-alter table `student` drop gpa;					          	#删列
+describe `employee`;									#查看表的结构
+drop table `student`;								#删除表
+alter table `student` add gpa decimal(3,2);			#选择某个表 新增一列
+alter table `student` drop gpa;						#删列
 
-insert into `student` values(3,'小黑','物理');		    #插入一条完整数据(按表的顺序
-select * from `student`;						                #查询表所有数据
+insert into `student` values(null,'小白','英语',50);		#插入一条完整数据(按表的顺序
+select * from `student` order by `score` desc limit 3;							#查询表所有数据 由高到低 只显示前三个
 insert into `student`(`major`,`student_id`)values('英语',2);
+
+set sql_safe_updates = 0;
+update `student` set `major` ='英语文学'
+where `major`='英语';								#更新数据
+delete from `student`								#删数据 行
+where `score`=50;
+
+alter table `employee`
+add foreign key(`branch_id`)
+references `branch`(`branch_id`)					#设置foreign的前提是那个属性已经存在
+on delete set null;
+insert into `employee` values();						#前提是外键所在数据存在 若外建表与也有关先设数据为null之后再update
+
+alter table `employee`
+add foreign key(`sup_id`)
+references `employee`(`emp_id`)
+on delete set null;									#添加数据时
+
+
+
+
+#聚合函数
+select count(*) from `employ`;	
+ --		avg(salary) /sum(``)/ max(``)										#表格中的数据个数（行数
+ 
+ -- % 表示多字元and  ' _ '单字元
+ select * from `clint` where `phone` like '%335';							#取得尾号为335的客户
+ select * from `employee` where `brith_date` like '_____12%';				#取得生日为12月的员工 2000-12-9 前边5个_
+ 
+ -- union 合并（属性需相同 int 2对2 1对1
+ select `emp_id` as `total_id`,`name` as `total_name`
+ from `employee`
+ union
+ select `clint_id`,`clint_name`
+ from `clint`;													#合并两个数据  total_id total_name
+																				--	1		小白
+-- join															连接表与表									
+select `employee`.`emp_id`,`employee`.`name`,`branch`.`branch.name`
+from `employee` join `branch`
+on `employee`.`emp_id` =`branch`.`manager_id`;								#条件	
+
+-- 嵌套查询
+select `name` from `employee`
+where `emp_id` in(															#单个人用= 多结果用in
+		select `emp_id`from `works_with`									#通过id查销售50000以上的人名
+        where `total_sales` > 50000
+);        
