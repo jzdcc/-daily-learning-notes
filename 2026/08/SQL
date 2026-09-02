@@ -82,3 +82,15 @@ for r in records:
 cursor.close()
 connect.commit()
 connect.close()
+
+视图
+一个会随着数据改变 动态变化
+creat view top10
+as
+select * from player order by level desc limit 10;
+当数据update改变时
+用 select * from top10 排行榜也会改变
+alter view top10
+as
+select * from player order by level limit 10 修改视图排行规则
+drop view top10   删除视图
