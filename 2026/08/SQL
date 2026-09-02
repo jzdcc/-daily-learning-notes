@@ -83,11 +83,11 @@ cursor.close()
 connect.commit()
 connect.close()
 
-视图
-一个会随着数据改变 动态变化
-creat view top10
-as
-select * from player order by level desc limit 10;
+视图														索引 当查询时数据量大时 创建索引提高查询速度
+一个会随着数据改变 动态变化										creat index index_name on tal_name(col_name)
+creat view top10													creat index email_index on fast(email);		在fast库创建一个关于email栏的索引email_index
+as																	show index from fast;
+select * from player order by level desc limit 10;					drop index email_index on fast					
 当数据update改变时
 用 select * from top10 排行榜也会改变
 alter view top10
