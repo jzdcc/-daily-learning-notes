@@ -94,3 +94,13 @@ alter view top10
 as
 select * from player order by level limit 10 修改视图排行规则
 drop view top10   删除视图
+
+
+表关联
+通过主键和外键的关系连接两个多个表				
+select * from player 						inner join内连接 只返回左右两表都有的数据 
+inner join equip							left join 返回左表所有的数据和右表匹配的数据
+on player.id=equip.player_id;				right join
+也可以写成 
+select * from player,equip
+where player.id=equip.player_id;
