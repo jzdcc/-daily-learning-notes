@@ -65,3 +65,20 @@ where `emp_id` in(															#单个人用= 多结果用in
 		select `emp_id`from `works_with`									#通过id查销售50000以上的人名
         where `total_sales` > 50000
 );        
+在vscode中使用
+import mysql.connector
+connect=mysql.connector.connect(
+    host="localhost",
+    port=3306,
+    user="root",
+    password="123456")
+cursor=connect.cursor()
+# cursor.execute("CREATE DATABASE `qq`;")
+
+cursor.execute("SHOW DATABASES;")
+records=cursor.fetchall()
+for r in records:
+    print(r)
+cursor.close()
+connect.commit()
+connect.close()
